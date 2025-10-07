@@ -1,0 +1,12 @@
+# Created by venv; see https://docs.python.org/3/library/venv.html
+# * this is the culprit for ignoring every file
+# Python cache
+__pycache__/
+
+# Virtual Environment
+venv/
+.venv/
+
+# Data files
+data/
+*.csv
