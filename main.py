@@ -1,5 +1,4 @@
 import numpy as np
-import pandas as pd
 import seaborn as sns
 import matplotlib
 # matplotlib.use('TkAgg')
@@ -7,7 +6,6 @@ import matplotlib
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
-from sklearn.preprocessing import StandardScaler
 from matplotlib import pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
@@ -124,6 +122,7 @@ y_res.value_counts()
 X_train,X_test,y_train,y_test = train_test_split(X_res,y_res,test_size=0.20, random_state=42)
 
 # Logistic Regression
+print("logistic regression after oversampling")
 log = LogisticRegression()
 log.fit(X_train,y_train)
 y_pred1 = log.predict(X_test)
@@ -132,6 +131,7 @@ print(precision_score(y_test,y_pred1))
 print(recall_score(y_test,y_pred1))
 print(f1_score(y_test,y_pred1))
 
+print("decision tree after oversampling")
 dt = DecisionTreeClassifier()
 dt.fit(X_train,y_train)
 y_pred2 = dt.predict(X_test)
@@ -140,6 +140,7 @@ print(precision_score(y_test,y_pred2))
 print(recall_score(y_test,y_pred2))
 print(f1_score(y_test,y_pred2))
 
+print("random forest after oversampling")
 rf = RandomForestClassifier(
      n_estimators=30,
     max_depth=8,
