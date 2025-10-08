@@ -1,12 +1,22 @@
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-def plot_class_distribution(data):
+plt.ion()
+
+def plot_class_distribution(data,fig):
+    if fig:
+        plt.figure(fig)
+    else:
+        plt.figure()
     sns.countplot(data=data, x='Class')
     plt.title('Class Distribution')
-    plt.show()
+    # plt.show(block=True)  
 
-def plot_model_accuracy(df, title):
+def plot_model_accuracy(df, title,fig):
+    if fig:
+        plt.figure(fig)
+    else:
+        plt.figure()
     sns.barplot(data=df, x='Models', y='ACC', palette='viridis')
     plt.title(title)
-    plt.show(block=True)
+    # plt.show(block=True)
